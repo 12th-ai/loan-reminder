@@ -1,0 +1,914 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 18.5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.vue-notification .notifcation-content {
+  font-size: 10px;
+}
+.vue-notification.success {
+  background: #0b4d7c !important;
+}
+
+body {
+  background: #f8f8f8;
+  background: #f3f3f3;
+}
+
+.formPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.formPage .formContents {
+  width: 450px;
+  position: relative;
+}
+@media (max-width: 625px) {
+  .formPage .formContents {
+    width: 90%;
+  }
+}
+.formPage .formContents.extended {
+  width: 600px;
+}
+@media (max-width: 625px) {
+  .formPage .formContents.extended {
+    width: 95%;
+  }
+}
+.formPage .formContents .logo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100px;
+}
+@media (max-width: 625px) {
+  .formPage .formContents .logo {
+    width: 65px;
+    height: 65px;
+    top: -80px;
+  }
+}
+.formPage .formContents .logo img {
+  width: 100%;
+  height: 100%;
+}
+.formPage .formContents .form {
+  padding: 25px 30px;
+  border: 1px solid rgba(202, 202, 202, 0.4196078431);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+@media (max-width: 625px) {
+  .formPage .formContents .form {
+    padding: 15px 25px;
+    box-shadow: none;
+    border: none;
+  }
+}
+.formPage .formContents .form form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.formPage .formContents .form form h1 {
+  font-size: 1.01rem;
+  margin: 0 0 10px;
+  font-weight: 500;
+  text-align: center;
+  color: #4a99cb;
+}
+.formPage .formContents .form form h1 span {
+  color: #5d5ec7;
+}
+.formPage .formContents .form form .part-form {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+@media (max-width: 625px) {
+  .formPage .formContents .form form .part-form {
+    grid-template-columns: 100%;
+    row-gap: 10px;
+  }
+}
+.formPage .formContents .form form .form-crd {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.formPage .formContents .form form .form-crd label {
+  text-align: left;
+  font-size: 0.82rem;
+  margin-bottom: 5px;
+}
+.formPage .formContents .form form .form-crd input {
+  width: 100%;
+  padding: 8px 10px;
+  outline: none;
+  font-size: 0.8rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0px;
+  background: transparent;
+}
+@media (max-width: 625px) {
+  .formPage .formContents .form form .form-crd input {
+    border-radius: 5px;
+    background: #ececec;
+  }
+}
+.formPage .formContents .form form .form-crd input::-moz-placeholder {
+  opacity: 0.8;
+}
+.formPage .formContents .form form .form-crd input::placeholder {
+  opacity: 0.8;
+}
+.formPage .formContents .form form .visibility-password {
+  position: relative;
+}
+.formPage .formContents .form form .visibility-password p {
+  position: absolute;
+  font-size: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4a99cb;
+  transition: 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}
+.formPage .formContents .form form .visibility-password p.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.formPage .formContents .form form .redirect {
+  font-size: 0.82rem;
+}
+.formPage .formContents .form form .redirect span {
+  color: #4a99cb;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+.formPage .formContents .form form .redirect span:hover::before {
+  width: 100%;
+}
+.formPage .formContents .form form .redirect span::before {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  border-radius: 5px;
+  left: 0;
+  background: #4a99cb;
+  bottom: -2px;
+  content: "";
+  transition: 0.5s;
+}
+.formPage .formContents .form form button {
+  padding: 7px 25px;
+  cursor: pointer;
+  background: #4a99cb;
+  color: #fff;
+  display: flex;
+  margin: 4px auto 9px;
+  border: none;
+  font-size: 0.82rem;
+  border-radius: 5px;
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.5s;
+  pointer-events: all;
+}
+.formPage .formContents .form form button.loading {
+  opacity: 0.5;
+  transform: scale(0.9);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.formPage .formContents .form form a.forgot {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #4a99cb;
+}
+
+.dashboard {
+  height: 100vh;
+  background: #f1f1fa;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  overflow-y: hidden;
+}
+.dashboard .dashboard-view {
+  height: 100vh;
+  overflow-y: auto;
+}
+@media (max-width: 1000px) {
+  .dashboard {
+    grid-template-columns: 25% 75%;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 100%;
+  }
+}
+.dashboard main {
+  padding: 25px 20px;
+}
+@media (max-width: 1157px) {
+  .dashboard main {
+    padding: 25px 20px 70px !important;
+  }
+}
+.dashboard .spacedTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard .spacedTitle button {
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 8px 20px;
+  background: #1f2f62;
+}
+.dashboard .spacedTitle .logout {
+  padding: 8px 25px;
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+  justify-content: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+  background: #4a99cb;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 1;
+  bottom: 0;
+  transition: 0.5s;
+  transform: scale(1);
+  font-size: 0.8rem;
+}
+@media (max-width: 768px) {
+  .dashboard .spacedTitle .logout {
+    display: none;
+  }
+}
+.dashboard .spacedTitle .logout svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+.dashboard .spacedTitle .signout {
+  display: none;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #4a99cb;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .dashboard .spacedTitle .signout {
+    display: flex;
+  }
+}
+.dashboard .spacedTitle .signout svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+.dashboard h1.mainTitle {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #1f2f62;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1157px) {
+  .dashboard h1.mainTitle {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 1157px) {
+  .dashboard h1.mainTitle {
+    font-size: 1.15rem;
+  }
+}
+.dashboard h1.mainTitle span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #96969b;
+}
+@media (max-width: 1157px) {
+  .dashboard h1.mainTitle span {
+    font-size: 0.85rem;
+  }
+}
+.dashboard h1.mainTitle span i {
+  color: #1f2f62;
+}
+
+.spacedDashboard {
+  display: grid;
+  grid-template-columns: 72% 28%;
+}
+@media (max-width: 1157px) {
+  .spacedDashboard {
+    grid-template-columns: 100%;
+  }
+}
+
+.center {
+  margin: 20px 0;
+  text-align: center;
+  color: #1f2f62;
+}
+
+.filtering {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+@media (max-width: 1000px) {
+  .filtering {
+    flex-direction: column;
+    row-gap: 15px;
+    margin-bottom: 15px;
+    align-items: unset;
+  }
+}
+.filtering .search {
+  position: relative;
+}
+.filtering .search .search-icon {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.filtering .search .search-icon svg {
+  height: 100%;
+  width: 100%;
+  fill: #252525;
+}
+.filtering .search input {
+  padding: 8px 10px 8px 35px;
+  width: 270px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.filtering .date form {
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  align-items: center;
+}
+.filtering .date form .date-pt label {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  display: flex !important;
+}
+.filtering .date form .date-pt input {
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.filtering .date form button {
+  padding: 6px 20px;
+  font-size: 0.77rem;
+  background: #4a99cb;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.filtering .date form .button {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.filtering .date form .button span {
+  position: absolute;
+  font-size: 0.7rem;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.filtering .date form .button span.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.tabled-page {
+  height: 100vh;
+}
+.tabled-page .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+@media (max-width: 1100px) {
+  .tabled-page .layer {
+    display: flex;
+  }
+}
+.tabled-page .layer .confirm {
+  border-radius: 7px;
+  background: #fff;
+  width: 450px;
+  padding: 10px 30px;
+  text-align: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto 0;
+}
+.tabled-page .layer .confirm label {
+  font-size: 0.85rem;
+  color: #252525;
+}
+.tabled-page .layer .confirm button {
+  margin: 10px 20px 5px;
+  outline: none;
+  border: 1px solid #1f2f62;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 3px 20px;
+  cursor: pointer;
+  background: #1f2f62;
+  transition: 0.5s;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+.tabled-page .layer .confirm button.cancel {
+  background: transparent;
+  color: #1f2f62;
+}
+.tabled-page .layer .confirm button.loading {
+  background: rgba(31, 47, 98, 0.6);
+  transform: scale(0.95);
+  pointer-events: none;
+  cursor: not-allowed;
+  border: 1px solid transparent;
+}
+.tabled-page .layer .overlay-in {
+  border-radius: 7px;
+  background: #fff;
+  width: 450px;
+  padding: 30px;
+  background: #f1f1fa;
+}
+@media (max-width: 768px) {
+  .tabled-page .layer .overlay-in {
+    height: 100vh;
+    width: 100%;
+  }
+}
+.tabled-page .layer .overlay-in .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #1f2f62;
+}
+.tabled-page .layer .overlay-in .top svg {
+  width: 20px;
+  fill: #1f2f62;
+  cursor: pointer;
+}
+.tabled-page .layer .overlay-in .layer-data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.tabled-page .layer .overlay-in .layer-data p {
+  display: flex;
+  font-size: 0.9rem;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  font-weight: 600;
+}
+.tabled-page .layer .overlay-in .layer-data p span {
+  font-weight: 400;
+}
+.tabled-page .layer .overlay-in .action {
+  margin-top: 10px;
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.tabled-page .layer .overlay-in .action button {
+  border: none;
+  padding: 8px 20px;
+  font-size: 0.82rem;
+  border-radius: 5px;
+  background: #4a99cb;
+  color: #fff;
+  cursor: pointer;
+}
+.tabled-page .layer .overlay-in .action button.delete {
+  background: salmon;
+}
+.tabled-page main {
+  position: relative;
+}
+.tabled-page main .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 25;
+  overflow-y: auto;
+}
+@media (max-width: 491px) {
+  .tabled-page main .overlay {
+    align-items: unset;
+  }
+}
+.tabled-page main .overlay .confirm {
+  border-radius: 7px;
+  background: #fff;
+  width: 450px;
+  padding: 10px 30px;
+  text-align: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto 0;
+}
+.tabled-page main .overlay .confirm label {
+  font-size: 0.85rem;
+  color: #252525;
+}
+.tabled-page main .overlay .confirm button {
+  margin: 10px 20px 5px;
+  outline: none;
+  border: 1px solid #1f2f62;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 3px 20px;
+  background: #1f2f62;
+  transition: 0.5s;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+.tabled-page main .overlay .confirm button.cancel {
+  background: transparent;
+  color: #1f2f62;
+}
+.tabled-page main .overlay .confirm button.cancel.loading {
+  color: #fff;
+}
+.tabled-page main .overlay .confirm button.loading {
+  background: rgba(31, 47, 98, 0.6);
+  transform: scale(0.95);
+  pointer-events: none;
+  cursor: not-allowed;
+  border: 1px solid transparent;
+}
+.tabled-page main .overlay form {
+  border-radius: 7px;
+  background: #fff;
+  width: 450px;
+  padding: 30px;
+}
+@media (max-width: 491px) {
+  .tabled-page main .overlay form {
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    padding: 30px 30px 70px;
+  }
+  .tabled-page main .overlay form .flex {
+    grid-template-columns: 100% !important;
+    row-gap: 6px;
+  }
+}
+.tabled-page main .overlay form .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #1f2f62;
+}
+.tabled-page main .overlay form .top svg {
+  width: 20px;
+  fill: #1f2f62;
+  cursor: pointer;
+}
+.tabled-page main .overlay form .flex {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.tabled-page main .overlay form label {
+  font-size: 0.8rem;
+  display: block;
+}
+.tabled-page main .overlay form.moredetailform label {
+  color: #1f2f62;
+}
+.tabled-page main .overlay form p.formdata {
+  font-size: 0.8rem;
+  padding: 5px 5px;
+  border-bottom: 1px solid rgba(31, 47, 98, 0.2);
+  margin: 10px 0;
+}
+.tabled-page main .overlay form input, .tabled-page main .overlay form textarea {
+  outline: none;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  width: 100%;
+  font-size: 0.8rem;
+}
+.tabled-page main .overlay form input.hide-controllers::-webkit-inner-spin-button, .tabled-page main .overlay form textarea.hide-controllers::-webkit-inner-spin-button {
+  display: none;
+}
+.tabled-page main .overlay form input.hide-controllers::-webkit-outer-spin-button, .tabled-page main .overlay form textarea.hide-controllers::-webkit-outer-spin-button {
+  display: none;
+}
+.tabled-page main .overlay form textarea {
+  height: 100px;
+  resize: vertical;
+}
+.tabled-page main .overlay form button {
+  outline: none;
+  margin: 10px 0 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: #1f2f62;
+  border-radius: 3px;
+  padding: 5px 10px;
+  width: 100%;
+  font-size: 0.8rem;
+  transition: 0.6s;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+.tabled-page main .overlay form button.loading {
+  background: rgba(31, 47, 98, 0.6);
+  transform: scale(0.95);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.tabled-page main .locator {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.tabled-page main .locator h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2f62;
+}
+.tabled-page main .locator button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 5px 20px;
+  background: #1f2f62;
+}
+.tabled-page main label.data-table-spare-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1f2f62;
+  display: flex;
+  margin-bottom: 15px;
+}
+.tabled-page main .data-table.expense-table .table .headings, .tabled-page main .data-table.expense-table .table .row {
+  grid-template-columns: 25% 35% 10% 15% 15%;
+}
+@media (max-width: 1100px) {
+  .tabled-page main .data-table.expense-table .table .headings, .tabled-page main .data-table.expense-table .table .row {
+    grid-template-columns: 30% 30% 20% 20%;
+  }
+}
+.tabled-page main .data-table label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1f2f62;
+  display: flex;
+  margin-bottom: 15px;
+}
+.tabled-page main .data-table label.each-other-expense-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.tabled-page main .data-table .table {
+  margin: 10px 0 0;
+  width: 100%;
+}
+.tabled-page main .data-table .table .headings, .tabled-page main .data-table .table .row {
+  display: grid;
+  grid-template-columns: 13% 13% 15% 12% 12% 12% 1fr;
+  align-items: center;
+}
+@media (max-width: 1100px) {
+  .tabled-page main .data-table .table .headings, .tabled-page main .data-table .table .row {
+    grid-template-columns: 50% 30% 20%;
+  }
+}
+@media (max-width: 1100px) {
+  .tabled-page main .data-table .table .headings .toHide, .tabled-page main .data-table .table .row .toHide {
+    display: none;
+  }
+}
+.tabled-page main .data-table .table .headings .toShow, .tabled-page main .data-table .table .row .toShow {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 1100px) {
+  .tabled-page main .data-table .table .headings .toShow, .tabled-page main .data-table .table .row .toShow {
+    display: none;
+  }
+}
+.tabled-page main .data-table .table .headings .toShow .actionBtn, .tabled-page main .data-table .table .row .toShow .actionBtn {
+  width: 33px;
+  height: 33px;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #4a99cb;
+}
+.tabled-page main .data-table .table .headings .toShow .actionBtn svg, .tabled-page main .data-table .table .row .toShow .actionBtn svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+.tabled-page main .data-table .table .headings {
+  margin: 0 0 10px;
+  background: rgba(74, 153, 203, 0.2);
+  padding: 10px 6px;
+}
+.tabled-page main .data-table .table .headings h2 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #1f2f62;
+}
+.tabled-page main .data-table .table .row {
+  margin: 7px 0;
+  padding: 7px 2px;
+}
+.tabled-page main .data-table .table .row:not(:last-of-type) {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+}
+.tabled-page main .data-table .table .row h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #252525;
+  white-space: nowrap;
+  overflow: hidden;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+}
+.tabled-page main .data-table .table .row div {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.tabled-page main .data-table .table .row div button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 4px 15px;
+  background: #1f2f62;
+}
+.tabled-page main .data-table .table .row div button.delete {
+  background: salmon;
+}
+.tabled-page main .data-table .table .row div button.edit {
+  background: #4a99cb;
+}
+.tabled-page main .data-table .table .row div button.send {
+  width: 27px;
+  height: 27px;
+  padding: 5px;
+}
+.tabled-page main .data-table .table .row div button.send svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+.options-button {
+  display: flex;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
+  margin-bottom: 20px;
+}
+.options-button button {
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  border: none;
+  background: #1f2f62;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: 0.5s;
+}
+.options-button button.active {
+  opacity: 1;
+}
+
+.printPdf {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 10px auto 10px;
+  display: flex;
+  padding: 6px 15px;
+  background: #4a99cb;
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.5s;
+}
+.printPdf.loading {
+  opacity: 0.5;
+  transform: scale(0.9);
+  pointer-events: none;
+  cursor: not-allowed;
+}/*# sourceMappingURL=style.css.map */

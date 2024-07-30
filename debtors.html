@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Assuming you have the 'others' array in your JavaScript code
+const data = {
+  others: [
+    {
+      Month: "3",
+      Month_Name: "Mar",
+      Year: "2023",
+      records: [
+        {
+          Amount: "4545",
+          Date: "2023-03-28",
+          Description: "dfvdfvdfvd",
+          Id: "21",
+          Month: "3",
+          Title: "dvdsf",
+          UserId: "7",
+          Year: "2023",
+          number_format: "4,545",
+        },
+      ],
+    },
+    {
+      Month: "6",
+      Month_Name: "Jun",
+      Year: "2023",
+      records: [
+        {
+          Amount: "34",
+          Date: "2023-06-28",
+          Description: "scscscsdc",
+          Id: "19",
+          Month: "6",
+          Title: "scsdc",
+          UserId: "7",
+          Year: "2023",
+          number_format: "34",
+        },
+      ],
+    },
+    {
+      Month: "8",
+      Month_Name: "Aug",
+      Year: "2023",
+      records: [
+        {
+          Amount: "3466",
+          Date: "2023-08-26",
+          Description: "Early Expense",
+          Id: "11",
+          Month: "8",
+          Title: "Early",
+          UserId: "7",
+          Year: "2023",
+          number_format: "3,466",
+        },
+        {
+          Amount: "4543",
+          Date: "2023-08-03",
+          Description: "Waguaaaaan",
+          Id: "16",
+          Month: "8",
+          Title: "fererf",
+          UserId: "7",
+          Year: "2023",
+          number_format: "4,543",
+        },
+      ],
+    },
+  ],
+};
+
+// Function to filter the data based on the search word
+function searchRecordsByTitle(searchWord) {
+  const filteredData = data.others.filter((month) => {
+    const recordsWithTitle = month.records.filter(
+      (record) => record.Title.toLowerCase().includes(searchWord.toLowerCase())
+    );
+    return recordsWithTitle.length > 0;
+  });
+
+  return filteredData;
+}
+
+// Example usage: Search for records with the title 'fererf'
+const searchWord = "fererf";
+const filteredData = searchRecordsByTitle(searchWord);
+console.log(filteredData);
+
+  </script>
+</body>
+</html>
